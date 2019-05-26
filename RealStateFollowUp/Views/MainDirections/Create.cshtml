@@ -1,11 +1,12 @@
-﻿@model ClientRequestStatus
+﻿@model RealStateFollowUp.Models.MainDirection
+
 @{
     ViewData["Title"] = "Create";
 }
 
 <br />
-<h2>סטטוס בקשת לקוח חדש</h2>
-<hr />
+<h2>כיוון חדש</h2>
+<br />
 
 <form asp-action="Create">
     <div class="form-border">
@@ -28,7 +29,6 @@
             </div>
             <span asp-validation-for="DisplayOrder" class="text-danger"></span>
         </div>
-
         <br />
         <div class="form-group">
             <input type="submit" value="שמור" class="btn btn-primary" /> &nbsp;
@@ -41,4 +41,3 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-

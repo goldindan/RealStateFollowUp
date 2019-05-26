@@ -1,10 +1,11 @@
-﻿@model IEnumerable<ClientRequestStatus>
+﻿@model IEnumerable<RealStateFollowUp.Models.MainDirection>
+
 @{
     ViewData["Title"] = "Index";
 }
 
 <br />
-<h2>סטטוס בקשת לקוח</h2>
+<h2>כיוונים</h2>
 <hr />
 <p>
     @await Html.PartialAsync("_CreateButtonPartial")
@@ -25,17 +26,16 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DisplayOrder)
-                </td>
-                @await Html.PartialAsync("_TableButtonPartial", item.ID)
-            </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DisplayOrder)
+                    </td>
+                    @await Html.PartialAsync("_TableButtonPartial", item.ID)
+                </tr>
             }
         </tbody>
     </table>
 </div>
-

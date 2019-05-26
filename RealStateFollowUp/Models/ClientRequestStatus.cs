@@ -10,8 +10,13 @@ namespace RealStateFollowUp.Models
     {
         public int ID { get; set; }
 
+        [Required(ErrorMessage = "ערך חובה")]
         [Display(Name = "סטטוס")]
         public String Name { get; set; }
+
+        [Required(ErrorMessage = "ערך חובה")]
+        [Display(Name = "סדר תצוגה")]
+        public int DisplayOrder { get; set; }
 
     }
 }
