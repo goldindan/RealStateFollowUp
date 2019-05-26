@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <connectionStrings>
+    <add name="DefaultConnection" connectionString="metadata=res://*/SoftwareAccess.csdl|res://*/SoftwareAccess.ssdl|res://*/SoftwareAccess.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=82.166.0.201;user id=dangoldb;password=Rosario1$;persistsecurityinfo=True;database=realestate&quot;" providerName="System.Data.EntityClient" />
+  </connectionStrings>
+  <location path="." inheritInChildApplications="false">
+    <system.webServer>
+      <handlers>
+        <add name="aspNetCore" path="*" verb="*" modules="AspNetCoreModule" resourceType="Unspecified" />
+      </handlers>
+      <aspNetCore processPath="dotnet" arguments=".\RealStateFollowUp.dll" stdoutLogEnabled="true" stdoutLogFile=".\logs\stdout">
+       <environmentVariables>
+        <environmentVariable name="ASPNETCORE_ENVIRONMENT" value="Development" />
+      </environmentVariables>
+    </aspNetCore>
+    </system.webServer>
+  </location>
+    <system.webServer>
+        <directoryBrowse enabled="false" />
+        <defaultDocument>
+            <files>
+                <clear />
+                <add value="Default.htm" />
+                <add value="Default.asp" />
+                <add value="index.htm" />
+                <add value="index.html" />
+                <add value="iisstart.htm" />
+                <add value="default.aspx" />
+                <add value="index.php" />
+            </files>
+        </defaultDocument>
+    </system.webServer>
+</configuration>
+<!--ProjectGuid: b904ad9e-98fa-4150-b4d9-88c5891c3f1a-->

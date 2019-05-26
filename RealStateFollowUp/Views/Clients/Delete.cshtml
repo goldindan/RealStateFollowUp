@@ -1,0 +1,102 @@
+﻿@model Client
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<br />
+<h2>מחיקת לקוח</h2>
+<hr />
+
+<form asp-action="Delete">
+    <div class="form-border">
+        <input type="hidden" asp-for="ID" />
+        <fieldset disabled>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="LastName" class="control-label"></label>
+                </div>
+                <div class="col-4">
+                    <input asp-for="LastName" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="FirstName" class="control-label"></label>
+                </div>
+                <div class="col-4">
+                    <input asp-for="FirstName" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="PhoneNumber" class="control-label"></label>
+                </div>
+                <div class="col-4">
+                    <input asp-for="PhoneNumber" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="IdentityCard" class="control-label"></label>
+                </div>
+                <div class="col-4">
+                    <input asp-for="IdentityCard" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Email" class="control-label"></label>
+                </div>
+                <div class="col-4">
+                    <input asp-for="Email" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="City" class="control-label"></label>
+                </div>
+                <div class="col-4">
+                    <input asp-for="City" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Street" class="control-label"></label>
+                </div>
+                <div class="col-4">
+                    <input asp-for="Street" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="StreetNum" class="control-label"></label>
+                </div>
+                <div class="col-4">
+                    <input asp-for="StreetNum" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Appartment" class="control-label"></label>
+                </div>
+                <div class="col-4">
+                    <input asp-for="Appartment" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Notes" class="control-label"></label>
+                </div>
+                <div class="col-4">
+                    <input asp-for="Notes" class="form-control" />
+                </div>
+            </div>
+        </fieldset>
+        <br />
+        <div class="form-group">
+            <input type="submit" value="מחק" class="btn btn-primary" /> &nbsp;
+            <a asp-action="Index" class="btn btn-success">חזור</a>
+        </div>
+    </div>
+</form>
+
