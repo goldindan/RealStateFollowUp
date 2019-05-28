@@ -6,12 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RealStateFollowUp.Data;
 using RealStateFollowUp.Models;
+using RealStateFollowUp.Models.ClientViewModels;
 
 namespace RealStateFollowUp.Controllers
 {
     public class ClientsController : Controller
     {
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public ClientsController(ApplicationDbContext context)
         {
@@ -20,12 +21,18 @@ namespace RealStateFollowUp.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Client.ToListAsync());
+            var clients = _context.Client.Include(s => s.Agent);
+            return View(await clients.ToListAsync());
         }
 
         public IActionResult Create()
         {
-            return View();
+            ClientAndAgentViewModel clientAndAgentViewModel = new ClientAndAgentViewModel()
+            {
+                AgentList = _context.Agent.ToList(),
+                Client = new Client()
+            };
+            return View(clientAndAgentViewModel);
         }
 
         [HttpPost]
@@ -48,7 +55,7 @@ namespace RealStateFollowUp.Controllers
                 return NotFound();
             }
 
-            var client = await _context.Client
+            var client = await _context.Client.Include(s=>s.Agent)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (client == null)
             {
@@ -65,12 +72,18 @@ namespace RealStateFollowUp.Controllers
                 return NotFound();
             }
 
-            var client = await _context.Client.FindAsync(id);
-            if (client == null)
+            ClientAndAgentViewModel clientAndAgentViewModel = new ClientAndAgentViewModel()
+            {
+                AgentList = _context.Agent.ToList(),
+                Client = await _context.Client.Include(s => s.Agent).FirstOrDefaultAsync(s => s.ID == id)
+            };
+
+            //var client = await _context.Client.Include(s=>s.Agent).FirstOrDefaultAsync(s=>s.ID == id);
+            if (clientAndAgentViewModel.Client == null)
             {
                 return NotFound();
             }
-            return View(client);
+            return View(clientAndAgentViewModel);
         }
 
         [HttpPost]
@@ -112,8 +125,9 @@ namespace RealStateFollowUp.Controllers
                 return NotFound();
             }
 
-            var client = await _context.Client
+            var client = await _context.Client.Include(s=>s.Agent)
                 .FirstOrDefaultAsync(m => m.ID == id);
+            
             if (client == null)
             {
                 return NotFound();

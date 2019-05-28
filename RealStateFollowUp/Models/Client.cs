@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -41,7 +42,11 @@ namespace RealStateFollowUp.Models
         [Display(Name = "מספר טלפון")]
         public String PhoneNumber { get; set; }
 
-        public int? AgentID { get; set; }
+        [Display(Name ="סוכן")]
+        public int AgentID { get; set; }
+
+        [ForeignKey("AgentID")]
+        public virtual Agent Agent { get; set; }
 
     }
 }

@@ -1,5 +1,5 @@
-﻿@model RealStateFollowUp.Models.Client
-
+﻿@model RealStateFollowUp.Models.ClientViewModels.ClientAndAgentViewModel
+@using RealStateFollowUp.Extensions
 @{
     ViewData["Title"] = "Create";
 }
@@ -13,93 +13,102 @@
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group row">
             <div class="col-2">
-                <label asp-for="LastName" class="control-label"></label>
+                <label asp-for="Client.LastName" class="control-label"></label>
             </div>
             <div class="col-4">
-                <input asp-for="LastName" class="form-control" />
+                <input asp-for="Client.LastName" class="form-control" />
             </div>
-            <span asp-validation-for="LastName" class="text-danger"></span>
+            <span asp-validation-for="Client.LastName" class="text-danger"></span>
         </div>
         <div class="form-group row">
             <div class="col-2">
-                <label asp-for="FirstName" class="control-label"></label>
+                <label asp-for="Client.FirstName" class="control-label"></label>
             </div>
             <div class="col-4">
-                <input asp-for="FirstName" class="form-control" />
+                <input asp-for="Client.FirstName" class="form-control" />
             </div>
-            <span asp-validation-for="FirstName" class="text-danger"></span>
+            <span asp-validation-for="Client.FirstName" class="text-danger"></span>
         </div>
         <div class="form-group row">
             <div class="col-2">
-                <label asp-for="PhoneNumber" class="control-label"></label>
+                <label asp-for="Client.PhoneNumber" class="control-label"></label>
             </div>
             <div class="col-4">
-                <input asp-for="PhoneNumber" class="form-control" />
+                <input asp-for="Client.PhoneNumber" class="form-control" />
             </div>
-            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            <span asp-validation-for="Client.PhoneNumber" class="text-danger"></span>
         </div>
         <div class="form-group row">
             <div class="col-2">
-                <label asp-for="IdentityCard" class="control-label"></label>
+                <label asp-for="Client.IdentityCard" class="control-label"></label>
             </div>
             <div class="col-4">
-                <input asp-for="IdentityCard" class="form-control" />
+                <input asp-for="Client.IdentityCard" class="form-control" />
             </div>
-            <span asp-validation-for="IdentityCard" class="text-danger"></span>
+            <span asp-validation-for="Client.IdentityCard" class="text-danger"></span>
         </div>
         <div class="form-group row">
             <div class="col-2">
-                <label asp-for="Email" class="control-label"></label>
+                <label asp-for="Client.Email" class="control-label"></label>
             </div>
             <div class="col-4">
-                <input asp-for="Email" class="form-control" />
+                <input asp-for="Client.Email" class="form-control" />
             </div>
-            <span asp-validation-for="Email" class="text-danger"></span>
+            <span asp-validation-for="Client.Email" class="text-danger"></span>
         </div>
         <div class="form-group row">
             <div class="col-2">
-                <label asp-for="City" class="control-label"></label>
+                <label asp-for="Client.City" class="control-label"></label>
             </div>
             <div class="col-4">
-                <input asp-for="City" class="form-control" />
+                <input asp-for="Client.City" class="form-control" />
             </div>
-            <span asp-validation-for="City" class="text-danger"></span>
+            <span asp-validation-for="Client.City" class="text-danger"></span>
         </div>
         <div class="form-group row">
             <div class="col-2">
-                <label asp-for="Street" class="control-label"></label>
+                <label asp-for="Client.Street" class="control-label"></label>
             </div>
             <div class="col-4">
-                <input asp-for="Street" class="form-control" />
+                <input asp-for="Client.Street" class="form-control" />
             </div>
-            <span asp-validation-for="Street" class="text-danger"></span>
+            <span asp-validation-for="Client.Street" class="text-danger"></span>
         </div>
         <div class="form-group row">
             <div class="col-2">
-                <label asp-for="StreetNum" class="control-label"></label>
+                <label asp-for="Client.StreetNum" class="control-label"></label>
             </div>
             <div class="col-4">
-                <input asp-for="StreetNum" class="form-control" />
+                <input asp-for="Client.StreetNum" class="form-control" />
             </div>
-            <span asp-validation-for="StreetNum" class="text-danger"></span>
+            <span asp-validation-for="Client.StreetNum" class="text-danger"></span>
         </div>
         <div class="form-group row">
             <div class="col-2">
-                <label asp-for="Appartment" class="control-label"></label>
+                <label asp-for="Client.Appartment" class="control-label"></label>
             </div>
             <div class="col-4">
-                <input asp-for="Appartment" class="form-control" />
+                <input asp-for="Client.Appartment" class="form-control" />
             </div>
-            <span asp-validation-for="Appartment" class="text-danger"></span>
+            <span asp-validation-for="Client.Appartment" class="text-danger"></span>
         </div>
         <div class="form-group row">
             <div class="col-2">
-                <label asp-for="Notes" class="control-label"></label>
+                <label asp-for="Client.Notes" class="control-label"></label>
             </div>
             <div class="col-4">
-                <input asp-for="Notes" class="form-control" />
+                <input asp-for="Client.Notes" class="form-control" />
             </div>
-            <span asp-validation-for="Notes" class="text-danger"></span>
+            <span asp-validation-for="Client.Notes" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Client.AgentID" class="control-label"></label>
+            </div>
+            <div class="col-4">
+                <select asp-for="Client.AgentID" asp-items="Model.AgentList.ToSelectListItem(Model.Client.AgentID)" class="form-control" ></select>
+            </div>
+            @*<span asp-validation-for="Client.AgentID" class="text-danger"></span>*@
         </div>
 
         <br />

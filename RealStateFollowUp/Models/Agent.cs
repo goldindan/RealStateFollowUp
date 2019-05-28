@@ -25,5 +25,14 @@ namespace RealStateFollowUp.Models
 
         [Display(Name ="מספר טלפון")]
         public String Phone { get; set; }
+
+        [Display(Name = "שם הסוכן")]
+        public String Name
+        {
+            get
+            {
+                return this.FirstName + " " + this.LastName;
+            }
+        }
     }
 }
