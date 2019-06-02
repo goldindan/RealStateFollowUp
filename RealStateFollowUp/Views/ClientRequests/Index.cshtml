@@ -1,0 +1,37 @@
+﻿@model RealStateFollowUp.Models.ClientRequestViewModel.ClientRequestAndClientNameViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<h2>בקשות של לקוח @Model.ClientName</h2>
+<hr />
+<p>
+    <a asp-action="Create" type="button" asp-route-clientID="@Model.ClientID" class="btn btn-primary">
+        <i class="fas fa-plus"></i>
+        &nbsp; חדש
+    </a>
+</p>
+<div class="form-border">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClientRequests.First().Name)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ClientRequests)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    @await Html.PartialAsync("_TableButtonPartial", item.ID)
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

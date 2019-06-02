@@ -18,7 +18,7 @@ namespace RealStateFollowUp.Models
         public String Name { get; set; }
         [Display(Name="תאריך יצירה")]
         public DateTime CreateDate { get; set; }
-        [Display(Name="סטטוס בקשה")]
+        [Display(Name="סטטוס")]
         public int StatusID { get; set; }
 
         [ForeignKey("StatusID")]
@@ -37,55 +37,57 @@ namespace RealStateFollowUp.Models
         public String SouthLimit { get; set; }
         [Display(Name = "גבול מזרחי")]
         public String WestLimit { get; set; }
-        [Display(Name = "סוג הנכס")]
+        [Display(Name = "סוג נכס")]
         public int? PropertyTypeID { get; set; }
 
         [ForeignKey("PropertyTypeID")]
         public PropertyType PropertyType { get; set; }
 
-        [Display(Name = "נכס חדש")]
-        public bool? IsNewProperty { get; set; }
+        [Display(Name = "חדש")]
+        public bool IsNewProperty { get; set; }
+        [Display(Name = "יד שנייה")]
+        public bool IsUsedProperty { get; set; }
         [Display(Name = "גיל הנכס")]
         public int? AgeOfProperty { get; set; }
-        [Display(Name = "כמות חדרים")]
-        public double? NumberOfRooms { get; set; }
+        [Display(Name = "חדרים")]
+        public decimal? NumberOfRooms { get; set; }
         [Display(Name = "שטח")]
-        public int Area { get; set; }
+        public String Area { get; set; }
         [Display(Name = "קומה")]
-        public int Floor { get; set; }
-        [Display(Name = "יש מעלית")]
-        public bool? HaveElevator { get; set; }
-        [Display(Name = "כמות חניות")]
+        public String Floor { get; set; }
+        [Display(Name = "מעלית")]
+        public bool HaveElevator { get; set; }
+        [Display(Name = "חניות")]
         public int? NumberOfParkings { get; set; }
-        [Display(Name = "יש מחסן")]
-        public bool? HaveStoreRoom { get; set; }
-        [Display(Name = "יש מרתף")]
-        public bool? HaveBasement { get; set; }
+        [Display(Name = "מחסן")]
+        public bool HaveStoreRoom { get; set; }
+        [Display(Name = "מרתף")]
+        public bool HaveBasement { get; set; }
         [Display(Name = "חזיתי")]
-        public bool? IsFront { get; set; }
+        public bool IsFront { get; set; }
         [Display(Name = "עורפי")]
-        public bool? IsRear { get; set; }
+        public bool IsRear { get; set; }
         [Display(Name = "כיוונים")]
         public int? MainDirectionID { get; set; }
 
         [ForeignKey("MainDirectionID")]
         public MainDirection MainDirection { get; set; }
-        [Display(Name = "יש גינה")]
-        public bool? HaveGarden { get; set; }
-        [Display(Name = "יש מרפסת")]
-        public bool? HaveBalcony { get; set; }
-        [Display(Name = "יש חדר טלויזיה")]
-        public bool? HaveTVRoom { get; set; }
-        [Display(Name = "יש חדר עבודה")]
-        public bool? HaveWorkingRoom { get; set; }
-        [Display(Name = "חדר הורים")]
+        [Display(Name = "גינה")]
+        public bool HaveGarden { get; set; }
+        [Display(Name = "מרפסת")]
+        public bool HaveBalcony { get; set; }
+        [Display(Name = "ח.טלויזיה")]
+        public bool HaveTVRoom { get; set; }
+        [Display(Name = "ח.עבודה")]
+        public bool HaveWorkingRoom { get; set; }
+        [Display(Name = "ח.הורים")]
         public int? MasterBedroomID { get; set; }
 
         [ForeignKey("MasterBedroomID")]
         public MasterBedroom MasterBedroom { get; set; }
-        [Display(Name = "מספר מקלחות")]
+        [Display(Name = "מקלחות")]
         public int? NumberOfBathrooms { get; set; }
-        [Display(Name = "מספר שירותים")]
+        [Display(Name = "שירותים")]
         public int? NumberOfToilets { get; set; }
         [Display(Name = "חודש מועדף לכניסה")]
         public int? PreferredEntryMonth { get; set; }

@@ -1,0 +1,226 @@
+﻿@model RealStateFollowUp.Models.ClientRequestViewModel.ClientRequestDataViewModel
+@using RealStateFollowUp.Extensions
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<br />
+<h2>עדגון בקשה קיימת</h2>
+<br />
+@Html.Partial("_StatusMessage", Model.StatusMessage)
+<hr />
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="ClientRequest.ID" />
+    <input type="hidden" asp-for="ClientRequest.ClientID" />
+    <div class="form-border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="ClientRequest.Name" class="control-label"></label>
+            </div>
+            <div class="col-4">
+                <input asp-for="ClientRequest.Name" class="form-control" />
+            </div>
+            <span asp-validation-for="ClientRequest.Name" class="text-danger"></span>
+            <div class="col-1">
+                <label asp-for="ClientRequest.PropertyTypeID" class="control-label"></label>
+            </div>
+            <div class="col-2">
+                <select asp-for="ClientRequest.PropertyTypeID" asp-items="Model.PropertyTypes.ToSelectListItem(Model.ClientRequest.PropertyTypeID)" class="form-control"></select>
+            </div>
+            <div class="col-1">
+                <label asp-for="ClientRequest.StatusID" class="control-label"></label>
+            </div>
+            <div class="col-2">
+                <select asp-for="ClientRequest.StatusID" asp-items="Model.ClientRequestStatuses.ToSelectListItem(Model.ClientRequest.StatusID)" class="form-control"></select>
+            </div>
+        </div>
+        <hr />
+        <div class="form-group row">
+            <div class="col-1">
+                <label asp-for="ClientRequest.NeighborhoodID" class="control-label"></label>
+            </div>
+            <div class="col-2">
+                <select asp-for="ClientRequest.NeighborhoodID" asp-items="Model.Neighborhoods.ToSelectListItem(Model.ClientRequest.NeighborhoodID)" class="form-control"></select>
+            </div>
+            <div class="col-1">
+                <label asp-for="ClientRequest.NumberOfRooms" class="control-label"></label>
+            </div>
+            <div class="col-2">
+                <input asp-for="ClientRequest.NumberOfRooms" class="form-control" />
+            </div>
+            <div class="col-1">
+                <label asp-for="ClientRequest.Floor" class="control-label"></label>
+            </div>
+            <div class="col-2">
+                <input asp-for="ClientRequest.Floor" class="form-control" />
+            </div>
+            <div class="col-1">
+                <label asp-for="ClientRequest.Area" class="control-label"></label>
+            </div>
+            <div class="col-2">
+                <input asp-for="ClientRequest.Area" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-1">
+                <label asp-for="ClientRequest.MasterBedroomID" class="control-label"></label>
+            </div>
+            <div class="col-2">
+                <select asp-for="ClientRequest.MasterBedroomID" asp-items="Model.MasterBedrooms.ToSelectListItem(Model.ClientRequest.MasterBedroomID)" class="form-control"></select>
+            </div>
+            <div class="col-1">
+                <label asp-for="ClientRequest.NumberOfParkings" class="control-label"></label>
+            </div>
+            <div class="col-2">
+                <input type="number" asp-for="ClientRequest.NumberOfParkings" class="form-control" />
+            </div>
+            <div class="col-1">
+                <label asp-for="ClientRequest.NumberOfBathrooms" class="control-label"></label>
+            </div>
+            <div class="col-2">
+                <input type="number" asp-for="ClientRequest.NumberOfBathrooms" class="form-control" />
+            </div>
+            <div class="col-1">
+                <label asp-for="ClientRequest.NumberOfToilets" class="control-label"></label>
+            </div>
+            <div class="col-2">
+                <input type="number" asp-for="ClientRequest.NumberOfToilets" class="form-control" />
+            </div>
+
+        </div>
+        <div class="form-group row">
+            <div class="col-1">
+                <label asp-for="ClientRequest.AgeOfProperty" class="control-label"></label>
+            </div>
+            <div class="col-2">
+                <input asp-for="ClientRequest.AgeOfProperty" class="form-control" />
+            </div>
+            <div class="col-1">
+                <label asp-for="ClientRequest.MainDirectionID" class="control-label"></label>
+            </div>
+            <div class="col-2">
+                <select asp-for="ClientRequest.MainDirectionID" asp-items="Model.MainDirections.ToSelectListItem(Model.ClientRequest.MainDirectionID)" class="form-control"></select>
+            </div>
+
+        </div>
+        <hr />
+        <div class="form-group row">
+            <div class="col-1">
+                <label asp-for="ClientRequest.IsNewProperty" class="control-label"></label>
+            </div>
+            <div class="col-2">
+                <input type="checkbox" asp-for="ClientRequest.IsNewProperty" class="form-check-input" />
+            </div>
+            <div class="col-1">
+                <label asp-for="ClientRequest.IsUsedProperty" class="control-label"></label>
+            </div>
+            <div class="col-2">
+                <input type="checkbox" asp-for="ClientRequest.IsUsedProperty" class="form-check-input" />
+            </div>
+            <div class="col-1">
+                <label asp-for="ClientRequest.HaveGarden" class="control-label"></label>
+            </div>
+            <div class="col-2">
+                <input type="checkbox" asp-for="ClientRequest.HaveGarden" class="form-check-input" />
+            </div>
+            <div class="col-1">
+                <label asp-for="ClientRequest.HaveBalcony" class="control-label"></label>
+            </div>
+            <div class="col-2">
+                <input type="checkbox" asp-for="ClientRequest.HaveBalcony" class="form-check-input" />
+            </div>
+
+        </div>
+        <div class="form-group row">
+            <div class="col-1">
+                <label asp-for="ClientRequest.HaveStoreRoom" class="control-label"></label>
+            </div>
+            <div class="col-2">
+                <input type="checkbox" asp-for="ClientRequest.HaveStoreRoom" class="form-check-input" />
+            </div>
+            <div class="col-1">
+                <label asp-for="ClientRequest.HaveBasement" class="control-label"></label>
+            </div>
+            <div class="col-2">
+                <input type="checkbox" asp-for="ClientRequest.HaveBasement" class="form-check-input" />
+            </div>
+            <div class="col-1">
+                <label asp-for="ClientRequest.IsFront" class="control-label"></label>
+            </div>
+            <div class="col-2">
+                <input type="checkbox" asp-for="ClientRequest.IsFront" class="form-check-input" />
+            </div>
+            <div class="col-1">
+                <label asp-for="ClientRequest.IsRear" class="control-label"></label>
+            </div>
+            <div class="col-2">
+                <input type="checkbox" asp-for="ClientRequest.IsRear" class="form-check-input" />
+            </div>
+            <span asp-validation-for="ClientRequest.MainDirectionID" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-1">
+                <label asp-for="ClientRequest.HaveTVRoom" class="control-label"></label>
+            </div>
+            <div class="col-2">
+                <input type="checkbox" asp-for="ClientRequest.HaveTVRoom" class="form-check-input" />
+            </div>
+            <div class="col-1">
+                <label asp-for="ClientRequest.HaveWorkingRoom" class="control-label"></label>
+            </div>
+            <div class="col-2">
+                <input type="checkbox" asp-for="ClientRequest.HaveWorkingRoom" class="form-check-input" />
+            </div>
+            <div class="col-1">
+                <label asp-for="ClientRequest.HaveElevator" class="control-label"></label>
+            </div>
+            <div class="col-2">
+                <input type="checkbox" asp-for="ClientRequest.HaveElevator" class="form-check-input" />
+            </div>
+        </div>
+        <hr />
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="ClientRequest.NorthLimit" class="control-label"></label>
+            </div>
+            <div class="col-3">
+                <input type="text" asp-for="ClientRequest.NorthLimit" class="form-control" />
+            </div>
+            <div class="col-2"></div>
+            <div class="col-2">
+                <label asp-for="ClientRequest.SouthLimit" class="control-label"></label>
+            </div>
+            <div class="col-3">
+                <input type="text" asp-for="ClientRequest.SouthLimit" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="ClientRequest.EastLimit" class="control-label"></label>
+            </div>
+            <div class="col-3">
+                <input type="text" asp-for="ClientRequest.EastLimit" class="form-control" />
+            </div>
+            <div class="col-2"></div>
+            <div class="col-2">
+                <label asp-for="ClientRequest.WestLimit" class="control-label"></label>
+            </div>
+            <div class="col-3">
+                <input type="text" asp-for="ClientRequest.WestLimit" class="form-control" />
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <input type="submit" value="שמור" class="btn btn-primary" /> &nbsp;
+            <a asp-action="Index" asp-route-clientId="@Model.ClientRequest.ClientID" class="btn btn-success">חזור</a>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

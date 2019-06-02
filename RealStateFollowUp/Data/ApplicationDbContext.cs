@@ -21,6 +21,6 @@ namespace RealStateFollowUp.Data
         public DbSet<ClientRequestStatus> ClientRequestStatus { get; set; }
         public DbSet<MainDirection> MainDirection { get; set; }
         public DbSet<MasterBedroom> MasterBedroom { get; set; }
-
+        public DbSet<ClientRequest> ClientRequest { get; set; }
     }
 }

@@ -12,6 +12,13 @@ namespace RealStateFollowUp.Models
         [Required]
         public int ID { get; set; }
 
+        public String Name
+        {
+            get
+            {
+                return this.FirstName + " " + this.LastName;
+            }
+        }
         [Display(Name = "שם משפחה")]
         public String LastName { get; set; }
 
